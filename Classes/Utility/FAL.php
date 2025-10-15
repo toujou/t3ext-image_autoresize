@@ -182,7 +182,11 @@ class FAL
                                 }
                                 break;
                             case 'DateTimeOriginal':
-                                $value = strtotime($value);
+                                if ('0000:00:00 00:00:00' !== $value) {
+                                    $value = strtotime($value);
+                                } else {
+                                    $value = null;
+                                }
                                 break;
                         }
                     }
